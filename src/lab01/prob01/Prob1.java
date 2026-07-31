@@ -1,4 +1,4 @@
-package lab01.prob1;
+package lab01.prob01;
 
 public class Prob1 {
 
