@@ -3,7 +3,17 @@ package lab01.prob07;
 public class Prob7 {
 
     public static void main(String[] args) {
-
+        Prob7 numar = new Prob7();
+        int n = 20;
+        int a, b;
+        for (int i = 2; i <= n; i += 2) {
+            for (a = 1; a <= i / 2; a++) {
+                b = i - a;
+                if (numar.isPrime(a) && numar.isPrime(b)) {
+                    System.out.println(i + " = " + a + " + " + b);
+                }
+            }
+        }
     }
 
     boolean isPrime(int n) {
