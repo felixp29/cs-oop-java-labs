@@ -1,0 +1,37 @@
+# LRU ops demo (capacity 3)
+# Lines starting with # are comments and ignored
+# Keys and values are simple strings without spaces
+
+PUT A 1
+PUT B 2
+PUT C 3
+
+# Access A so it becomes most-recently-used
+GET A
+
+# Insert D -> capacity exceeded -> evicts the least-recently-used (expected: B)
+PUT D 4
+
+# B should be missing now
+GET B
+
+# Access C (now C becomes most-recently-used)
+GET C
+
+# Insert E -> evicts oldest among {A, D, C} (expected: A)
+PUT E 5
+
+# A should be missing now
+GET A
+
+# Update C's value and mark it most-recently-used
+PUT C 30
+GET C
+
+# Insert F -> evicts oldest among {D, E, C} (expected: D)
+PUT F 6
+
+# Check which keys survived
+GET D
+GET E
+GET F
